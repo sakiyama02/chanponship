@@ -21,28 +21,13 @@ TiCurveInfomation::TiCurveInfomation(){
 
     index++;
 */
-/*
-    index=34;
-    curveData[index].radius=180;
-    curveData[index].dirction=CURVE_LEFT;
-
-    index=63;
+    index=68;
     curveData[index].radius=190;
     curveData[index].dirction=CURVE_RIGHT;
 
-    index=64;
+    index=69;
     curveData[index].radius=200;
     curveData[index].dirction=CURVE_LEFT;
-
-
-    index=67;
-    curveData[index].radius=90;
-    curveData[index].dirction=CURVE_LEFT;
-
-    index=69;
-    curveData[index].radius=212;
-    curveData[index].dirction=CURVE_RIGHT;
-*/
 /*
     index=2;
     curveData[index].radius=463;//690.2339-100;

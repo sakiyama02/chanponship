@@ -65,8 +65,15 @@ int8 CarPosition::update()
         msg.LOG(LOG_ID_ERR,"CarPos::update calcOdometry err\n");
         return retChk;
     }
-    //msg.LOG(LOG_ID_COORDINATE,"%f   %f   %f",carPos.xPosition,carPos.yPosition,carDirection);
-    //msg.LOG(LOG_ID_COORDINATE,"%f",carDirection);
+    static int8 i=0;
+    if(i==50){
+        //msg.LOG(LOG_ID_COORDINATE,"%f",carDirection);
+        msg.LOG(LOG_ID_COORDINATE,"%f   %f   %f",carPos.xPosition,carPos.yPosition,carDirection);
+        i=0;    
+
+    }else{
+        i++;
+    }
     if(carDirection>=600||carDirection<=-600){
         msg.LOG(LOG_ID_ERR,"車体角度が異常のため強制終了\n");
         act_tsk(END_TASK);

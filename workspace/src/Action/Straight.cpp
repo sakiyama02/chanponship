@@ -47,16 +47,16 @@ int8 Straight::run(int32 speed,PIDData pid_data,
     */
     motorPower.leftPower  = speed;
     motorPower.rightPower = speed;
-    printf("現在速度=%d\n",speed);
+    //printf("現在速度=%d\n",speed);
 
     // 計算した値で出力
-    if(motor_power.leftPower!=0){
+    if(motor_power.leftPower!=0||motor_power.rightPower!=0){
         retChk = steering.rotateWheel(motor_power);
     }else{
         retChk = steering.rotateWheel(motorPower);
     }
     
-     if(retChk != SYS_OK){
+    if(retChk != SYS_OK){
         msg.LOG(LOG_ID_ERR,"Straight::run rotateWheel err\n");
         return SYS_NG;
     }
