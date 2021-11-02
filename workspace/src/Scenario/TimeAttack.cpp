@@ -129,6 +129,9 @@ int8 TimeAttack::sceneChenge(int16* scene_num){
     VData curvData;
     SData cursData;
     DirectionData curdirectionData;
+
+    TrapezoidControl &trapezoid = TrapezoidControl::getInstance();
+    trapezoid.set(2);
     //シングルトンのセンサ管理からインスタンスのポインタを取得
     SensorManager &senserManage=SensorManager::getInstance();
     //シングルトンの自己位置推定からインスタンスのポインタを取得
@@ -252,6 +255,7 @@ int8 TimeAttack::sceneChenge(int16* scene_num){
     }
     if(*scene_num>TIMEATTACK_NUM-1){
         *scene_num=-1;
+        trapezoid.set(2);
     }
     return retChk;
 }

@@ -5,6 +5,7 @@ TrapezoidControl::TrapezoidControl()
 {
     CarSpeed = 0;
     TargetSpeed = 0;
+    acceleration=0;
 }
 
 TrapezoidControl::~TrapezoidControl(){}
@@ -45,18 +46,24 @@ int8 TrapezoidControl::accelerate()
     }
 
     if( CarSpeed < TargetSpeed ) {
-        CarSpeed += ACCELERATION;
+        CarSpeed += acceleration;
 
         if( CarSpeed > TargetSpeed ){
             CarSpeed = TargetSpeed;
         }
     } else {
-        CarSpeed -= ACCELERATION;
+        CarSpeed -= acceleration;
 
         if( CarSpeed < TargetSpeed ){
             CarSpeed = TargetSpeed;
         }
     }
+
+    return SYS_OK;
+}
+
+int8 TrapezoidControl::set(int8 nanka){
+    acceleration=nanka;
 
     return SYS_OK;
 }
